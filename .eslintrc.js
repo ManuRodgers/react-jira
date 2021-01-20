@@ -6,7 +6,7 @@ module.exports = {
   },
   extends: [
     'react-app', // Use the recommended rules from eslint-config-react-app (bundled with Create React App)
-    'eslint:recommended', // Use the recommened rules from eslint
+    'eslint:recommended', // Use the recommended rules from eslint
     'plugin:@typescript-eslint/recommended', // Use the recommended rules from @typescript-eslint/eslint-plugin
     'plugin:react/recommended', // Use the recommended rules from eslint-plugin-react
     'prettier/@typescript-eslint', // Use eslint-config-prettier to disable ESLint formatting rules from @typescript-eslint/eslint-plugin that would conflict with Prettier
