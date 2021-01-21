@@ -1,11 +1,12 @@
 import './App.css';
 
+import { Login } from 'pages';
 import React from 'react';
 
-import logo from './logo.svg';
-
-const App: React.FunctionComponent = (): JSX.Element => {
-  return <div className="App">hello mate</div>;
+export const App: React.FunctionComponent = (): JSX.Element => {
+  return (
+    <div className="App">
+      <Login />
+    </div>
+  );
 };
-
-export default App;
