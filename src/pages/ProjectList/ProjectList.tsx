@@ -1,23 +1,25 @@
+import { useMount } from 'hooks';
 import React, { useEffect, useState } from 'react';
+import { useHttp } from 'utils/http';
 
 import { SearchPanel } from './components';
 
-const apiUrl = process.env.REACT_APP_API_URL;
 export const ProjectList: React.FunctionComponent = () => {
-  const [searchText, setSearchText] = useState('');
-  const [list, setList] = useState([]);
-  console.log('list: ', list);
+  const client = useHttp();
+  const [projectList, setProjectList] = useState([]);
+  console.log('projectList: ', projectList);
+  const [users, setUsers] = useState([]);
+  console.log('users: ', users);
+  useMount(() => {
+    client('users').then(setUsers);
+  });
+  useMount(() => {
+    client('projects').then(setProjectList);
+  });
 
-  useEffect(() => {
-    fetch(`${apiUrl}/projects?`).then(async (response) => {
-      if (response.ok) {
-        setList(await response.json());
-      }
-    });
-  }, [searchText]);
   return (
     <div>
-      <SearchPanel searchText={searchText} setSearchText={setSearchText} />
+      {/* <SearchPanel searchText={searchText} setSearchText={setSearchText} /> */}
     </div>
   );
 };

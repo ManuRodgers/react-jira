@@ -1,12 +1,15 @@
 import './App.css';
 
-import { Login } from 'pages';
+import { AuthenticatedApp } from 'AuthenticatedApp';
+import { useAuthContext } from 'providers/AuthProvider';
 import React from 'react';
+import { UnauthenticatedApp } from 'UnauthenticatedApp';
 
 export const App: React.FunctionComponent = (): JSX.Element => {
+  const { user } = useAuthContext();
   return (
     <div className="App">
-      <Login />
+      {user ? <AuthenticatedApp /> : <UnauthenticatedApp />}
     </div>
   );
 };
